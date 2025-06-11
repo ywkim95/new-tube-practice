@@ -1,19 +1,12 @@
-import { z } from "zod";
-import { baseProcedure, createTRPCRouter } from "../init";
-export const appRouter = createTRPCRouter({
-  hello: baseProcedure
-    .input(
-      z.object({
-        text: z.string(),
-      })
-    )
-    .query((opts) => {
-      // database and load the video
+import { studioRouter } from "@/modules/studio/server/procedures";
+import { videosRouter } from "@/modules/videos/server/procedures";
+import { categoriesRouter } from "@/modules/categories/server/procedures";
 
-      return {
-        greeting: `hello ${opts.input.text}`,
-      };
-    }),
+import { createTRPCRouter } from "../init";
+export const appRouter = createTRPCRouter({
+  studio: studioRouter,
+  categories: categoriesRouter,
+  videos: videosRouter,
 });
 // export type definition of API
 export type AppRouter = typeof appRouter;
