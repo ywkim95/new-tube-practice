@@ -5,7 +5,6 @@ import { SidebarTrigger } from "@/components/ui/sidebar";
 
 import { AuthButton } from "@/modules/auth/ui/components/auth-button";
 
-import { SearchInput } from "./search-input";
 import { StudioUploadModal } from "../studio-upload-modal";
 
 export const StudioNavbar = () => {
